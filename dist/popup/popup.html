@@ -8,7 +8,8 @@
   </head>
   <body>
 
-    // create an entry per highlight in chrome.storage for this page
+    <!-- this is a fragment that will be determine how entries from popup.js will be formated; 'a' tag is for a hyperlink, 
+    otherwise it's a header and a paragraph element -->
     <template id="li_template">
       <li>
         <a>
@@ -18,8 +19,10 @@
       </li>
     </template>
 
+    <!-- General, one-time heading for the entries -->
     <h1>Google Dev Docs</h1>
     <button>Group Tabs</button>
+    <button>Download CSV</button>
     <ul></ul>
 
     <script src="./popup.js" type="module"></script>

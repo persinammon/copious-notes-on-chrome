@@ -4,9 +4,9 @@
   "description": "Add highlights with personal notes",
   "version": "1.0",
   "action": {
-    "default_popup": "popup/popup.html"
-  }, //actions
-  //"default_locale" : "en",
+    "default_popup": "popup/popup.html",
+    "default_title": "Click to see all highlights"
+  }, 
   "icons": {
     "16": "images/16-highlight-icon-Denicon.png",
     "32": "images/32-highlight-icon-Denicon.png",
@@ -14,7 +14,12 @@
     "128": "images/128-highlight-icon-Denicon.png"
   },
   "permissions": [
-    "storage"
+    "storage",
+    "contextMenus", 
+    "downloads", 
+    "extensionTypes",
+    "types", 
+    "commands" 
   ],
   "author": "persinammon@github.io",
   "background": {

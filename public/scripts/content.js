@@ -1,22 +1,18 @@
-const article = document.querySelector("article");
+//- User highlights text -> either in the right click window or right away a button by mouse appears with tag "Annotate text block/code section." -> Click "Annotate..." -> Pop up with text box appears where can write notes (in markdown?) -> Click save on bottom right of that text box. -> key-value of that location/set of words on that page to the user made notes is saved to dictionary per page.
+
+
+// This needs to be able to inject highlights into a DOM of the current page. 
+// It might also need to change the browser context menu to allow for the action of adding highlights.
+
+// const body = document.querySelector("body");
+
+// document.querySelector("body");
+
+// for every page, 
+// check dict for the url->highlighted texts
+// then populate with already highlights
 
 // `document.querySelector` may return null if the selector doesn't match anything.
-if (article) {
-  const text = article.textContent;
-  const wordMatchRegExp = /[^\s]+/g; // Regular expression
-  const words = text.matchAll(wordMatchRegExp);
-  // matchAll returns an iterator, convert to array to get word count
-  const wordCount = [...words].length;
-  const readingTime = Math.round(wordCount / 200);
-  const badge = document.createElement("p");
-  // Use the same styling as the publish information in an article's header
-  badge.classList.add("color-secondary-text", "type--caption");
-  badge.textContent = `⏱️ ${readingTime} min read`;
-
-  // Support for API reference docs
-  const heading = article.querySelector("h1");
-  // Support for article docs with date
-  const date = article.querySelector("time")?.parentNode;
-
-  (date ?? heading).insertAdjacentElement("afterend", badge);
-}
+// if (body) {
+  
+// }
