@@ -9,6 +9,32 @@ The end workflow is run `npm run build` from the root of the project, go to `chr
 Load unpacked the `dist` folder, pin the new extension to the Chrome toolbar, and use the refresh and errors buttons of the extension
 on the `chrome://extensions` page for development. Remember, do not touch the files in `dist` folder. Any changes will be overwritten after every build script run, make all changes in the `public` folder.
 
+
+## TypeScript
+
+I experimented with using [TypeScript](https://www.typescriptlang.org/) for the first time. Google Developer documentation does not have examples with TypeScript (all their examples [here](https://github.com/GoogleChrome/chrome-extensions-samples/tree/main)), but they do offer the package `@types/chrome` to developers willing to try it. I used a tutorial on Medium to set up a workflow, with the final extension code being exported to the `dist` folder.
+
+Despite the overhead, I'm a huge fan of always using TypeScript as a best practice.
+
+Instructions to Install:
+
+- Install Node.js and npm, check installation with `node -v && npm -v`.
+- Run `npm init -y`.
+- Install required dependencies under the `--save-dev` flag. `--save-dev` saves packages under `devDependencies` in `package.json`, so the packages are not installed in production environment (keep build minimal). This flag is not important in this case, as what is ending up being used in production is the generated vanilla JS in `dist`.
+
+
+```
+npm install --save-dev webpack webpack-cli &&
+npm install --save-dev copy-webpack-plugin &&
+npm install --save-dev typescript ts-loader &&
+npm install --save-dev @types/chrome
+```
+- Do extra setup detailed [here](https://betterprogramming.pub/creating-chrome-extensions-with-typescript-914873467b65).
+
+
+Super credits to the Medium article, very cool. I also found a second Medium [article](https://medium.com/@steveruiz/using-a-javascript-library-without-type-declarations-in-a-typescript-project-3643490015f3) for backwards compatibility for adding node modules with no TypeScript files at all to a project.
+
+
 ## Notes
 
 - Similar to how Jupyter GRAFITTI allows for in-line voice messages on Jupyter notebooks.
@@ -27,28 +53,6 @@ on the `chrome://extensions` page for development. Remember, do not touch the fi
 ```
 - `service-worker.ts` -> `background.js`
 
-## TypeScript
-
-I experimented with using [TypeScript](https://www.typescriptlang.org/) for the first time. Google Developer documentation does not have examples with TypeScript (all their examples [here](https://github.com/GoogleChrome/chrome-extensions-samples/tree/main)), but they do offer the package `@types/chrome` to developers willing to try it. I used a tutorial on Medium to set up a workflow, with the final extension code being exported to the `dist` folder.
-
-I am not sure if it was worth the overhead of changing the file directory in an unintuitive way and dealing with `npm`,
-but I like the idea of always using TypeScript as a best practice.
-
-Instructions to Install:
-
-- Install Node.js and npm, check installation with `node -v && npm -v`.
-- Run `npm init -y`.
-- Install required dependencies under the `--save-dev` flag. `--save-dev` saves packages under `devDependencies` in `package.json`, so the packages are not installed in production environment (keep build minimal).
-
-```
-npm install --save-dev webpack webpack-cli &&
-npm install --save-dev copy-webpack-plugin &&
-npm install --save-dev typescript ts-loader &&
-npm install --save-dev @types/chrome
-```
-- Do extra setup detailed [here](https://betterprogramming.pub/creating-chrome-extensions-with-typescript-914873467b65).
-
-Super credits to the Medium article, very cool.
 
 # Functionality
 
@@ -62,7 +66,11 @@ Super credits to the Medium article, very cool.
 ## Sources
 
 https://betterprogramming.pub/creating-chrome-extensions-with-typescript-914873467b65
+
+https://www.linkedin.com/pulse/vanilla-javascript-concepts-you-need-know-before-learning#:~:text=Vanilla%20JavaScript%20is%20a%20term,any%20plugins%20or%20other%20libraries.
+
 https://github.com/GoogleChrome/chrome-extensions-samples/tree/main
+
 https://developer.chrome.com/docs/extensions/mv3/getstarted/tut-tabs-manager/
 
 https://developer.chrome.com/docs/extensions/mv3/architecture-overview/#async-sync
