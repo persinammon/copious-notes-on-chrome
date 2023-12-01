@@ -27,13 +27,14 @@
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
       "matches": [
         "https://*/*",
         "https://*/",
         "http://*/*",
         "http://*/"
-      ]
+      ],
+      "css": ["highlight-style.css"],
+      "js": ["content.js"]
     }
   ]
 }
