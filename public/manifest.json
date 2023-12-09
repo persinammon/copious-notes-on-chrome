@@ -17,8 +17,6 @@
     "storage",
     "contextMenus", 
     "downloads", 
-    "extensionTypes",
-    "types", 
     "commands" 
   ],
   "author": "persinammon@github.io",

@@ -1,28 +1,20 @@
-// // content.js is called to populate the page with already saved highlights -> 
-// // key : word fragment; val : text associated
-// // if key not found, does not populate and creates message that highlight is outdated
-// //
-// // it also changes the browser context menu (right click menu) to allow for the action of adding higlights
-// // this is a statically declared script through manifest.json, as it should be done for every page
+import { Highlight, initiateAddHighlight } from "./service-worker.js";
+// ECMAScript modules (ESM)
 
-// // "contextMenus", // add action item in 'right click' browser context menu - necessary
-// //chrome.contextMenus.onClicked.addListener(initiateAddHighlight);
+// content.js is called to populate the page with already saved highlights -> 
+// key : word fragment; val : text associated, and all associated edge cases
+// this is a statically declared script through manifest.json, as it should be done for every page
 
-interface Highlight {
-    keytext : string;
-    entrytext : string; 
-}
+
+
+// "contextMenus", // add action item in 'right click' browser context menu - necessary
+// should this listener move the work to the service worker, and how to do that 
+chrome.contextMenus.onClicked.addListener(initiateAddHighlight);
 
 
 // // capture url of current page
-// chrome.storage.sync.get([url : string]).then((result) => {
-//     // result is a dictionary of text fragments to higlight text
-//     // higlight all text fragments
-//     //console.log("Value currently is " + result.key);
-// });
+chrome.storage.sync.get([url : string]).then((Array<Highlight> result) => {
+    // for loop populating page with highlights - if key not found, console.log("Highlight key not found")
+    console.log("Highlights successfully added.");
+});
   
-// // "permissions": [
-// //     "extensionTypes", //unsure about this
-// //     "types", //unsure about this
-// //   ],
-// // ```
